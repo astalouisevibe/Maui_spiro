@@ -2,7 +2,7 @@
 {
     public partial class App : Application
     {
-       public static List<PatientData> Patients = new List<PatientData>();
+        public static List<PatientData> Patients = new List<PatientData>();
         static PatientDatabase database;
 
         // Hent den globale databaseinstans

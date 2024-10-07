@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using SQLite;
 
 
 namespace Maui_spiro
@@ -18,7 +17,7 @@ namespace Maui_spiro
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

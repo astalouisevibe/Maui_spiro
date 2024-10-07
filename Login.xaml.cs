@@ -1,5 +1,3 @@
-using Microsoft.Maui.Controls;
-
 namespace Maui_spiro
 {
     public partial class LoginPage : ContentPage

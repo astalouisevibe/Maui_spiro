@@ -1,14 +1,38 @@
+
+/* Unmerged change from project 'Maui_spiro (net7.0-windows10.0.19041.0)'
+Before:
 using Microsoft.Maui.Controls;
 using System.Threading.Tasks;
+After:
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+*/
 
+/* Unmerged change from project 'Maui_spiro (net7.0-maccatalyst)'
+Before:
+using Microsoft.Maui.Controls;
+using System.Threading.Tasks;
+After:
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+*/
+
+/* Unmerged change from project 'Maui_spiro (net7.0-android)'
+Before:
+using Microsoft.Maui.Controls;
+using System.Threading.Tasks;
+After:
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+*/
 namespace Maui_spiro;
 
 public partial class CreatePatientPage : ContentPage
 {
-	public CreatePatientPage()
-	{
-		InitializeComponent();
-	}
+    public CreatePatientPage()
+    {
+        InitializeComponent();
+    }
     // Event handler for 'Opret patient'
     private async void OnCreatePatientButtonClicked(object sender, EventArgs e)
     {
@@ -40,12 +64,12 @@ public partial class CreatePatientPage : ContentPage
         };
 
 
-                // Gem patienten i databasen
-                await App.Database.SavePatientAsync(newPatient);
+        // Gem patienten i databasen
+        await App.Database.SavePatientAsync(newPatient);
 
-                await DisplayAlert("Succes", "Ny patient gemt", "OK");
-                await Navigation.PopAsync(); // Gå tilbage til hovedsiden
-          
-    
+        await DisplayAlert("Succes", "Ny patient gemt", "OK");
+        await Navigation.PopAsync(); // Gå tilbage til hovedsiden
+
+
     }
 }

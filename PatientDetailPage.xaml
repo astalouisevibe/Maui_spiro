@@ -1,4 +1,5 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ï»¿<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui_spiro.PatientDetailPage">
 
@@ -9,9 +10,10 @@
             <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
 
         <Label x:Name="PatientDato" Text="Dato: " FontSize="Small"/>
-        <Label x:Name="PatientKøn" Text="Køn: " FontSize="Small"/>
-        <Label x:Name="PatientHøjde" Text="Højde: " FontSize="Small"/>
-        <Label x:Name="PatientVægt" Text="Vægt: " FontSize="Small"/>
+        <Label x:Name="PatientKÃ¸n" Text="KÃ¸n: " FontSize="Small"/>
+        <Label x:Name="PatientHÃ¸jde" Text="HÃ¸jde: " FontSize="Small"/>
+        <Label x:Name="PatientVÃ¦gt" Text="VÃ¦gt: " FontSize="Small"/>
+        <Label x:Name="PatientEtnicitet" Text="Etnicitet: " FontSize="Small"/>
         <Label x:Name="LungFunctionLabel" Text="Lungefunktion: " FontSize="Small" />
     </StackLayout>
 

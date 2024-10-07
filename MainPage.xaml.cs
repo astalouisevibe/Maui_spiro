@@ -1,10 +1,41 @@
-﻿using Microsoft.Maui.Controls;
-
-namespace Maui_spiro
+﻿namespace Maui_spiro
 {
     public partial class MainPage : ContentPage
+
+    /* Unmerged change from project 'Maui_spiro (net7.0-windows10.0.19041.0)'
+    Before:
+        {
+
+            public MainPage()
+    After:
+        {
+
+            public MainPage()
+    */
+
+    /* Unmerged change from project 'Maui_spiro (net7.0-maccatalyst)'
+    Before:
+        {
+
+            public MainPage()
+    After:
+        {
+
+            public MainPage()
+    */
+
+    /* Unmerged change from project 'Maui_spiro (net7.0-android)'
+    Before:
+        {
+
+            public MainPage()
+    After:
+        {
+
+            public MainPage()
+    */
     {
-        
+
         public MainPage()
         {
             InitializeComponent();
@@ -46,14 +77,14 @@ namespace Maui_spiro
         // Event handler for 'Opret ny patient'
         private async void OnCreatePatientButtonClicked(object sender, EventArgs e)
         {
-           await Navigation.PushAsync(new CreatePatientPage());
+            await Navigation.PushAsync(new CreatePatientPage());
         }
 
         private async void OnLogUdButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
         }
-     
+
 
     }
 
@@ -66,6 +97,7 @@ namespace Maui_spiro
         public string Køn { get; set; }
         public string Højde { get; set; }
         public string Vægt { get; set; }
+        public string Etnicitet { get; set; }
         public string FCV { get; set; }
         public string FEV1 { get; set; }
     }

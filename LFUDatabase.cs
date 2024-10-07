@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Maui_spiro
+﻿namespace Maui_spiro
 {
+    /*
     internal class LFUDatabase
     {
 
@@ -15,4 +10,5 @@ namespace Maui_spiro
             get { return _patientData; }
         }
     }
+    */
 }
