@@ -13,7 +13,7 @@ namespace Maui_spiro
             PatientVægt.Text = $"Vægt: {patientData.Vægt}";
             PatientEtnicitet.Text = $"Etnicitet: {patientData.Etnicitet}";
             LungFunctionLabel.Text = $"Lungefunktion:\n{patientData.FCV} \n{patientData.FEV1}";
-      
+      // test
             }
     }
 
