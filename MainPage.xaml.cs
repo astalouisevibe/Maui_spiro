@@ -1,41 +1,9 @@
-﻿namespace Maui_spiro
+﻿using SQLite;
+
+namespace Maui_spiro
 {
     public partial class MainPage : ContentPage
-
-    /* Unmerged change from project 'Maui_spiro (net7.0-windows10.0.19041.0)'
-    Before:
-        {
-
-            public MainPage()
-    After:
-        {
-
-            public MainPage()
-    */
-
-    /* Unmerged change from project 'Maui_spiro (net7.0-maccatalyst)'
-    Before:
-        {
-
-            public MainPage()
-    After:
-        {
-
-            public MainPage()
-    */
-
-    /* Unmerged change from project 'Maui_spiro (net7.0-android)'
-    Before:
-        {
-
-            public MainPage()
-    After:
-        {
-
-            public MainPage()
-    */
-    {
-
+    { 
         public MainPage()
         {
             InitializeComponent();
@@ -88,16 +56,28 @@
 
     }
 
-    // klasse for patientdata - SKAL ændres
     public class PatientData
     {
+        [PrimaryKey]
         public string CPR { get; set; }
         public string Name { get; set; }
-        public string Dato { get; set; }
+        public string Alder { get; set; }
         public string Køn { get; set; }
         public string Højde { get; set; }
         public string Vægt { get; set; }
         public string Etnicitet { get; set; }
+        public string Dato { get; set; }
+        public string FCV { get; set; }
+        public string FEV1 { get; set; }
+
+    }
+
+    public class PatientMålinger
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string CPR { get; set; }
+        public string Dato { get; set; }
         public string FCV { get; set; }
         public string FEV1 { get; set; }
     }

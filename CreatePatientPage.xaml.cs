@@ -1,30 +1,5 @@
+using System.Diagnostics;
 
-/* Unmerged change from project 'Maui_spiro (net7.0-windows10.0.19041.0)'
-Before:
-using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
-After:
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
-*/
-
-/* Unmerged change from project 'Maui_spiro (net7.0-maccatalyst)'
-Before:
-using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
-After:
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
-*/
-
-/* Unmerged change from project 'Maui_spiro (net7.0-android)'
-Before:
-using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
-After:
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
-*/
 namespace Maui_spiro;
 
 public partial class CreatePatientPage : ContentPage
@@ -38,6 +13,7 @@ public partial class CreatePatientPage : ContentPage
     {
         string patientName = PatientNameEntry.Text;
         string cprNumber = CPRNumberEntry.Text;
+  
 
         if (string.IsNullOrWhiteSpace(patientName) || string.IsNullOrWhiteSpace(cprNumber) || cprNumber.Length != 10 || !long.TryParse(cprNumber, out _))
         {
@@ -59,9 +35,16 @@ public partial class CreatePatientPage : ContentPage
         {
             Name = PatientNameEntry.Text,
             CPR = CPRNumberEntry.Text,
-            FCV = "FCV data", // Dette kan være resultat fra en test
-            FEV1 = "FEV1 data"// resultat af test
+            Alder = CalculateAge(CPRNumberEntry.Text),
+            Dato = null,
+            Etnicitet = null,
+            Højde = null,
+            Vægt = null,
+            FCV = null, // resultat fra en test
+            FEV1 = null // resultat af test
         };
+
+        Debug.WriteLine($"Saving patient: Name = {newPatient.Name}, CPR = {newPatient.CPR}, Alder = {newPatient.Alder}");
 
 
         // Gem patienten i databasen
@@ -70,6 +53,31 @@ public partial class CreatePatientPage : ContentPage
         await DisplayAlert("Succes", "Ny patient gemt", "OK");
         await Navigation.PopAsync(); // Gå tilbage til hovedsiden
 
-
     }
+
+    
+    public string CalculateAge(string cprNumber)
+    {
+        // Ekstraher fødselsdato fra CPR-nummeret
+        string birthDateString = cprNumber.Substring(0, 6);
+        int day = int.Parse(birthDateString.Substring(0, 2));
+        int month = int.Parse(birthDateString.Substring(2, 2));
+        int year = int.Parse(birthDateString.Substring(4, 2));
+
+     
+        if (year < 50)
+            year += 2000;
+        else
+            year += 1900;
+
+
+        DateTime birthDate = new DateTime(year, month, day);
+
+        // Beregn alder
+        int age = DateTime.Now.Year - birthDate.Year;
+        if (DateTime.Now < birthDate.AddYears(age)) age--;
+
+        return Convert.ToString(age);
+    }
+
 }

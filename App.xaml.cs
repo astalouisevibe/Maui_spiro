@@ -2,27 +2,23 @@
 {
     public partial class App : Application
     {
-        public static List<PatientData> Patients = new List<PatientData>();
-        static PatientDatabase database;
-
-        // Hent den globale databaseinstans
+        private static PatientDatabase _database;
         public static PatientDatabase Database
         {
             get
             {
-                if (database == null)
+                if (_database == null)
                 {
-                    // Opret eller hent stien til databasen
-                    string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "patients.db3");
-                    database = new PatientDatabase(dbPath);
+                    var dbPath = @"C:\Users\astal\OneDrive - Aarhus universitet\Semesterprojekt_3\Asta SW_test\patient_database.db";
+
+                    _database = new PatientDatabase(dbPath);
                 }
-                return database;
+                return _database;
             }
         }
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new LoginPage());
         }
     }

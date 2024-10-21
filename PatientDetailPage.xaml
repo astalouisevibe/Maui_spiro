@@ -7,13 +7,15 @@
         <Label x:Name="PatientNameLabel" Text="Navn: " FontSize="Medium" />
         <Label x:Name="PatientCPRLabel" Text="CPR: " FontSize="Medium" />
       
-            <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
+       <Label Text="Patient oplysninger" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
+        <Label x:Name=" PatientAlder" Text="Alder: " FontSize="Small"/>
 
-        <Label x:Name="PatientDato" Text="Dato: " FontSize="Small"/>
         <Label x:Name="PatientKøn" Text="Køn: " FontSize="Small"/>
         <Label x:Name="PatientHøjde" Text="Højde: " FontSize="Small"/>
         <Label x:Name="PatientVægt" Text="Vægt: " FontSize="Small"/>
         <Label x:Name="PatientEtnicitet" Text="Etnicitet: " FontSize="Small"/>
+        <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
+        <Label x:Name="PatientDato" Text="Dato: " FontSize="Small"/>
         <Label x:Name="LungFunctionLabel" Text="Lungefunktion: " FontSize="Small" />
     </StackLayout>
 
