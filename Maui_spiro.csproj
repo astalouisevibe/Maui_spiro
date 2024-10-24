@@ -49,6 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="packages\**" />
+	  <Compile Remove="packages\**" />
+	  <EmbeddedResource Remove="packages\**" />
+	  <MauiCss Remove="packages\**" />
+	  <MauiXaml Remove="packages\**" />
+	  <None Remove="packages\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\logo1.png" />
 	</ItemGroup>
 

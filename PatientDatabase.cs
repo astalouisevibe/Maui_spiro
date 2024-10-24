@@ -70,7 +70,14 @@ namespace Maui_spiro
                 return _database.InsertAsync(maaling);
             }
 
-
         }
+
+        public Task<List<PatientMålinger>> GetPatientMålingerByCPRAsync(string cprNumber)
+        {
+            return _database.Table<PatientMålinger>()
+                            .Where(m => m.CPR == cprNumber)
+                            .ToListAsync();
+        }
+
     }
 }

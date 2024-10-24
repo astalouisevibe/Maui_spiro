@@ -15,8 +15,19 @@
         <Label x:Name="PatientVægt" Text="Vægt: " FontSize="Small"/>
         <Label x:Name="PatientEtnicitet" Text="Etnicitet: " FontSize="Small"/>
         <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
-        <Label x:Name="PatientDato" Text="Dato: " FontSize="Small"/>
-        <Label x:Name="LungFunctionLabel" Text="Lungefunktion: " FontSize="Small" />
+        <StackLayout>
+            <Label Text="Lungefunktion:" FontSize="20" />
+            <CollectionView x:Name="MålingerListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" FontSize="Small" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+
+        <Button Text="Tilbage" Clicked="OnReturnButtonClicked" Margin="20,20,20,20"></Button>
     </StackLayout>
 
 </ContentPage>
