@@ -13,7 +13,6 @@ public partial class CreatePatientPage : ContentPage
     {
         string patientName = PatientNameEntry.Text;
         string cprNumber = CPRNumberEntry.Text;
-  
 
         if (string.IsNullOrWhiteSpace(patientName) || string.IsNullOrWhiteSpace(cprNumber) || cprNumber.Length != 10 || !long.TryParse(cprNumber, out _))
         {
@@ -65,7 +64,7 @@ public partial class CreatePatientPage : ContentPage
         int year = int.Parse(birthDateString.Substring(4, 2));
 
      
-        if (year < 50)
+        if (year < 24)
             year += 2000;
         else
             year += 1900;

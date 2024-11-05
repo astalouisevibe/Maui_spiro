@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
     <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Maui_spiro.PatientDetailPage">
+             x:Class="Maui_spiro.PatientDetailPage"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout Padding="20">
         <Label x:Name="PatientNameLabel" Text="Navn: " FontSize="Medium" />
@@ -20,7 +21,9 @@
             <CollectionView x:Name="MålingerListView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding .}" FontSize="Small" />
+                        <Frame Padding="10" Margin="5">
+                            <Label Text="{Binding .}" FontSize="Small" />
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
