@@ -35,12 +35,13 @@ public partial class CreatePatientPage : ContentPage
             Name = PatientNameEntry.Text,
             CPR = CPRNumberEntry.Text,
             Alder = CalculateAge(CPRNumberEntry.Text),
-            Dato = null,
+           /* Dato = null,
             Etnicitet = null,
             Højde = null,
             Vægt = null,
             FCV = null, // resultat fra en test
             FEV1 = null // resultat af test
+           */
         };
 
         Debug.WriteLine($"Saving patient: Name = {newPatient.Name}, CPR = {newPatient.CPR}, Alder = {newPatient.Alder}");
