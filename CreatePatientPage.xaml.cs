@@ -35,13 +35,14 @@ public partial class CreatePatientPage : ContentPage
             Name = PatientNameEntry.Text,
             CPR = CPRNumberEntry.Text,
             Alder = CalculateAge(CPRNumberEntry.Text),
-           /* Dato = null,
+            Køn = GetGender(CPRNumberEntry.Text),
+            Dato = null,
             Etnicitet = null,
             Højde = null,
             Vægt = null,
             FCV = null, // resultat fra en test
             FEV1 = null // resultat af test
-           */
+           
         };
 
         Debug.WriteLine($"Saving patient: Name = {newPatient.Name}, CPR = {newPatient.CPR}, Alder = {newPatient.Alder}");
@@ -55,6 +56,20 @@ public partial class CreatePatientPage : ContentPage
 
     }
 
+    public string GetGender (string cprNumber)
+    {
+        int GenderString =int.Parse( cprNumber.Substring(9, 1));
+        string Male = "Mand";
+        string Female = "Kvinde";
+        if (GenderString % 2 == 0)
+        {
+            return Female;
+        }
+        else
+        {
+            return Male;
+        }
+    }
     
     public string CalculateAge(string cprNumber)
     {
