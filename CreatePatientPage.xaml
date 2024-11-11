@@ -4,17 +4,26 @@
              x:Class="Maui_spiro.CreatePatientPage"
              NavigationPage.HasNavigationBar="False"
              >
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#87CEFA" Offset="0.0" />
+            <!-- Lys blå -->
+            <GradientStop Color="#1E90FF" Offset="1.0" />
+            <!-- Mørkere blå -->
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
     <StackLayout Padding="30" Spacing="20">
         <Label Text="Opret ny patient" FontSize="Large" HorizontalOptions="Center" />
 
         <!-- Input fields for patient data -->
         <Label Text="Navn" />
-        <Entry x:Name="PatientNameEntry" Placeholder="Indtast patientens navn" Completed="OnCreatePatientButtonClicked" />
+        <Entry x:Name="PatientNameEntry" Placeholder="Indtast patientens navn" Completed="OnCreatePatientButtonClicked" Background="#F5F5F5"/>
 
         <Label Text="CPR-nummer" />
-        <Entry x:Name="CPRNumberEntry" Placeholder="Indtast CPR-nummer" Keyboard="Numeric" Completed="OnCreatePatientButtonClicked" />
+        <Entry x:Name="CPRNumberEntry" Placeholder="Indtast CPR-nummer" Keyboard="Numeric" Completed="OnCreatePatientButtonClicked" Background="#f5f5f5"  />
 
         <!-- Button to create a new patient -->
-        <Button Text="Opret patient" Clicked="OnCreatePatientButtonClicked" />
+        <Button Text="Opret patient" Clicked="OnCreatePatientButtonClicked" TextColor="Black" Background="#F5f5f5" />
     </StackLayout>
 </ContentPage>

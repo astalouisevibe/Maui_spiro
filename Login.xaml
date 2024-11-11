@@ -3,7 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui_spiro.LoginPage"
              NavigationPage.HasNavigationBar="False">
-
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#87CEFA" Offset="0.0" />
+            <!-- Lys blå -->
+            <GradientStop Color="#1E90FF" Offset="1.0" />
+            <!-- Mørkere blå -->
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
     <ScrollView>
         <VerticalStackLayout
             Spacing="20"
@@ -33,13 +41,13 @@
 
             <!-- Input fields for user login -->
             <Label Text="Indtast AUH-ID" />
-            <Entry x:Name="AUHIdEntry" Placeholder="AUH-ID" Completed="OnLoginButtonClicked"/>
+            <Entry x:Name="AUHIdEntry" Placeholder="AUH-ID" Completed="OnLoginButtonClicked" Background="#F5f5f5"/>
 
             <Label Text="Indtast kode" />
-            <Entry x:Name="kodeEntry" Placeholder="kode" IsPassword="True" Completed="OnLoginButtonClicked" />
+            <Entry x:Name="kodeEntry" Placeholder="kode" IsPassword="True" Completed="OnLoginButtonClicked" Background="#F5f5f5" />
 
             <!-- Button to trigger login -->
-            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Button Text="Login" Clicked="OnLoginButtonClicked" TextColor="Black" Background="#F5f5f5"/>
 
         </VerticalStackLayout>
     </ScrollView>
