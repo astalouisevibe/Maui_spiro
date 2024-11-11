@@ -53,6 +53,7 @@ namespace Maui_spiro
                     Dato = patient.Dato,
                     FCV = patient.FCV,
                     FEV1 = patient.FEV1,
+                    Ratio = patient.Ratio,
                 };
 
                 return _database.InsertAsync(maaling);
@@ -65,6 +66,7 @@ namespace Maui_spiro
                     Dato = patient.Dato,
                     FCV = patient.FCV,
                     FEV1 = patient.FEV1,
+                    Ratio = patient.Ratio,
                 };
 
                 return _database.InsertAsync(maaling);

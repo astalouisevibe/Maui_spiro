@@ -2,8 +2,10 @@ namespace Maui_spiro
 {
     public partial class PatientDetailPage : ContentPage
     {
+        private PatientData _patientData;
         public PatientDetailPage(PatientData patientData)
         {
+            _patientData = patientData;
             InitializeComponent();
             PatientNameLabel.Text = $"Navn: {patientData.Name}";
             PatientCPRLabel.Text = $"CPR: {patientData.CPR}";
@@ -13,6 +15,7 @@ namespace Maui_spiro
             PatientVægt.Text = $"Vægt: {patientData.Vægt}";
             PatientEtnicitet.Text = $"Etnicitet: {patientData.Etnicitet}";
             LoadPatientMålinger(patientData.CPR);
+           ForventetResultatClicked(patientData);
             }
 
        private async void LoadPatientMålinger (string cprNumber)
@@ -22,7 +25,7 @@ namespace Maui_spiro
 
             if (målinger != null)
             {
-                var målingStrings = målinger.Select(m => $"Dato: {m.Dato}, FEV1: {m.FEV1}, FCV: {m.FCV}").ToList();
+                var målingStrings = målinger.Select(m => $"Dato: {m.Dato}, FEV1: {m.FEV1}, FCV: {m.FCV}, Ratio: {m.Ratio}").ToList();
                 MålingerListView.ItemsSource = målingStrings;
             }
             else
@@ -36,6 +39,57 @@ namespace Maui_spiro
         {
             await Navigation.PopAsync();
         }
+        private async void ForventetResultatClicked(PatientData patientData)
+        {
+            _patientData = patientData;
+            int hojde = Convert.ToInt16(_patientData.Højde);
+            int alder = Convert.ToInt16(_patientData.Alder);
+            double racefaktor;
+            double forventetFVC;
+            double forventetFEV1;
+            double forventetRatio;
+            if (_patientData.Etnicitet == "Kaukasisk" || _patientData.Etnicitet == "Andet")
+            {
+               racefaktor = 1;
+            }
+            else if (_patientData.Etnicitet == "Afrikansk" || _patientData.Etnicitet == "Latino")
+            {
+                racefaktor = 0.87;
+            }
+            else if (_patientData.Etnicitet == "Asiatisk")
+            {
+                racefaktor = 0.93;
+            }
+            else
+            {
+                await DisplayAlert("Fejl", "fejl i at bestemme racefaktor", "ok");
+                return;
+            }
+
+            if (_patientData.Køn == "Mand")
+            {
+                forventetFVC = ((0.052 * hojde) - (0.022 * alder) - 3.1) * racefaktor; //formel fundet fra internettet
+                forventetFEV1 = ((0.046 * hojde) - (0.025 * alder) - 3.5) * racefaktor;
+                forventetRatio = forventetFEV1 / forventetFVC;
+                ForventetResultatLabel.Text = $"Forventet FVC: {forventetFVC:F2}, Forventet FEV1: {forventetFEV1:F2}, Forventet Ratio: {forventetRatio:F2}";
+              
+            }
+            else if (_patientData.Køn == "Kvinde")
+            {
+                forventetFVC = ((0.045 * hojde) - (0.020 * alder) - 2.9) * racefaktor; //formel fundet fra internettet
+                forventetFEV1 = ((0.04 * hojde) - (0.022 * alder) - 3.2) * racefaktor;
+                forventetRatio = forventetFEV1 / forventetFVC;
+                ForventetResultatLabel.Text = $"Forventet FVC: {forventetFVC:F2}, Forventet FEV1: {forventetFEV1:F2}, Forventet Ratio: {forventetRatio:F2}";
+
+            }
+            else
+            {
+                await DisplayAlert("Fejl", "fejl i udregning af forventet lungeværdier", "ok");
+            }
+            
+            
+        }
+    
     }
 
 }

@@ -26,10 +26,13 @@
         <Label x:Name="PatientVægt" Text="Vægt: " FontSize="Small"/>
         <Label x:Name="PatientEtnicitet" Text="Etnicitet: " FontSize="Small"/>
         <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
-        
-            
-            
+            <Label x:Name="ForventetResultatLabel" Text="{Binding}" FontSize="Small" TextColor="Red"/>
+
+
             <StackLayout>
+
+
+       
             <Label Text="Lungefunktion:" FontSize="20" />
                 <CollectionView x:Name="MålingerListView" >
                 <CollectionView.ItemTemplate>
