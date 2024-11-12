@@ -15,7 +15,7 @@ namespace Maui_spiro
             PatientVægt.Text = $"Vægt: {patientData.Vægt}";
             PatientEtnicitet.Text = $"Etnicitet: {patientData.Etnicitet}";
             LoadPatientMålinger(patientData.CPR);
-           ForventetResultatClicked(patientData);
+            ForventetResultat(patientData);
             }
 
        private async void LoadPatientMålinger (string cprNumber)
@@ -39,7 +39,7 @@ namespace Maui_spiro
         {
             await Navigation.PopAsync();
         }
-        private async void ForventetResultatClicked(PatientData patientData)
+        private async void ForventetResultat(PatientData patientData)
         {
             _patientData = patientData;
             int hojde = Convert.ToInt16(_patientData.Højde);

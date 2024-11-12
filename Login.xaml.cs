@@ -2,13 +2,12 @@ namespace Maui_spiro
 {
     public partial class LoginPage : ContentPage
     {
-        // Forudbestemt login
-        private const string ValidAUHId = "test";  // Forudbestemt AUH-ID
-        private const string ValidKode = "1234";        // Forudbestemt kode
+       private readonly LoginValidator _loginvalidator;
 
         public LoginPage()
         {
             InitializeComponent();
+            _loginvalidator = new LoginValidator();
         }
 
         // Event handler for login-knap
@@ -17,11 +16,9 @@ namespace Maui_spiro
             string auhId = AUHIdEntry.Text;
             string kode = kodeEntry.Text;
 
-            // Simpel validering af login
-            if (auhId == ValidAUHId && kode == ValidKode)
+            if (_loginvalidator.Validate(auhId,kode))
             {
                 await DisplayAlert("Succes", "Login succesfuldt!", "OK");
-                // Naviger til startsiden (MainPage)
                 await Navigation.PushAsync(new MainPage());
             }
             else
