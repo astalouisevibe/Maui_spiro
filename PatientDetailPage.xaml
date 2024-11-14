@@ -12,10 +12,18 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
+<Grid>
+        <ScrollView>
 
-    <ScrollView>
-        <StackLayout Padding="20">
-        <Label x:Name="PatientNameLabel" Text="Navn: " FontSize="Medium" />
+            <StackLayout Padding="10">
+                <Button x:Name="ForventetButton" Text="Hjælp" 
+                        Clicked="OnForventetButtonClicked"
+                        HorizontalOptions="End" VerticalOptions="Start"
+                        Margin="5" TextColor="Black" Background="#F5f5f5" />
+
+
+
+                <Label x:Name="PatientNameLabel" Text="Navn: " FontSize="Medium"  />
         <Label x:Name="PatientCPRLabel" Text="CPR: " FontSize="Medium" />
       
        <Label Text="Patient oplysninger" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
@@ -26,7 +34,7 @@
         <Label x:Name="PatientVægt" Text="Vægt: " FontSize="Small"/>
         <Label x:Name="PatientEtnicitet" Text="Etnicitet: " FontSize="Small"/>
         <Label Text="Resultat historik" FontSize="Medium" TextColor="#333333" Margin="0,20,0,0" TextDecorations="Underline"/>
-            <Label x:Name="ForventetResultatLabel" Text="{Binding}" FontSize="Small" TextColor="Red"/>
+          
 
 
             <StackLayout>
@@ -50,4 +58,5 @@
             <Button Text="Tilbage" Clicked="OnReturnButtonClicked" Margin="20,20,20,20" TextColor="Black" Background="#F5f5f5"></Button>
     </StackLayout>
         </ScrollView>
+    </Grid>
 </ContentPage>
