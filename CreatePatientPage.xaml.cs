@@ -28,4 +28,9 @@ public partial class CreatePatientPage : ContentPage
         await Navigation.PopAsync(); // Gå tilbage til hovedsiden
 
     }
+
+    private async void OnReturnButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }

@@ -10,7 +10,7 @@
                 if (_database == null)
                 {
                     var dbPath = @"C:\Users\astal\OneDrive - Aarhus universitet\Semesterprojekt_3\Asta SW_test\patient_database.db";
-
+                    //var path = "-"
                     _database = new PatientDatabase(dbPath);
                 }
                 return _database;
